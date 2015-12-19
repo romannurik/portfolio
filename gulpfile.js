@@ -232,6 +232,10 @@ gulp.task('html', function () {
 
 // Clean Output Directory
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
+// gulp.task('clean', function() {
+//   del(['.tmp', 'dist']);
+//   $.cache.clearAll();
+// });
 
 // Watch Files For Changes & Reload
 gulp.task('serve', ['styles', 'bower', 'html'], function () {
@@ -273,6 +277,19 @@ gulp.task('default', ['clean'], function (cb) {
       cb);
 });
 
+// Deploy to GitHub pages
+gulp.task('deploy', function() {
+  return gulp.src('dist/**/*')
+    .pipe($.ghPages());
+});
+
+// Deploy to GitHub pages
+gulp.task('deploy', function() {
+  return gulp.src('dist/**/*')
+    .pipe($.ghPages({
+      remoteUrl: 'https://github.com/romannurik/portfolio.git'
+    }));
+});
 
 // Load custom tasks from the `tasks` directory
 try { requireDir('tasks'); } catch (err) {}

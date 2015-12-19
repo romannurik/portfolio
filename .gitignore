@@ -1,5 +1,6 @@
 .sass-cache
 .tmp
+.publish
 dist
 _sandbox
 .DS_Store
