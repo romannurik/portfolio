@@ -1,0 +1,286 @@
+# List of my portfolio projects.
+
+- name: Muzei Live Wallpaper
+  date: September 2013 – February 2014
+  extra_classes: tall
+  description: |
+    My philosophy for design and developer advocacy is to [create big, real-world demos](https://medium.com/google-developers/walk-then-talk-3b935bfe5484) and use them as fodder for content creation; walking the walk gives you more credibility.
+
+    Muzei is one of the larger apps I've written that epitomizes this philosophy. I [came up with the idea for the app](https://medium.com/google-developers/serendipitous-ideas-3a1721a6f716), designed, developed, launched, and open-sourced it over the course of 4 months.
+
+    Since the original launch, I updated some of the custom visual language in the app to include material design elements.
+
+    Muzei has been installed over a million times on Google Play.
+
+  actions:
+  - caption: Install app
+    url: https://play.google.com/store/apps/details?id=net.nurik.roman.muzei
+  - caption: View code
+    url: https://github.com/romannurik/muzei
+  - caption: Read backstory
+    url: https://medium.com/google-developers/serendipitous-ideas-3a1721a6f716
+
+  pages:
+  - video: muzei
+    color: '#c2d6f2'
+    color2: '#3c6caf'
+    device_frame: nexus5_light
+
+  - image: muzei_detail1.png
+    color: '#c2d6f2'
+    color2: '#3c6caf'
+    extra_classes: no-scale
+    offset_media: 0, 22%
+    device_frame: nexus5_light
+    caption: I obsess over details. Here's a screen in Muzei I'm really proud of, where the seekbars visually represent their corresponding effect. [See on Dribbble](https://dribbble.com/shots/1445180-Muzei-Live-Wallpaper-Advanced-Settings)
+
+  - video: muzei_archive
+    color: 'material orange 100'
+    color2: 'material orange 600'
+    device_frame: browser
+    caption: I also built a [web-based archive of featured art](http://muzei.co/archive) used in the app, which actually served as the basis of some of the interactions in this portfolio.
+
+
+###################################################################################################
+
+
+- name: Google I/O Android App
+  date: 2010 – 2014
+  extra_classes: tall
+  description: |
+    The Google I/O Android app is a Developer Relations-run project that serves two purposes:
+
+    * Help Google I/O attendees and remote viewers personalize their conference agenda and explore conference content before, during, and after the event.
+    * Be an excellent open-source example of Android design and development best practices
+
+    My role has primarily been lead designer and frontend engineer, most notably for the 2014 app, which was one of the very **first Android apps to adopt material design**. For two years, I was also the overall technical lead for the app. In 2015, I acted primarily as UX mentor/advisor.
+
+  actions:
+  - caption: Install app
+    url: https://play.google.com/store/apps/details?id=com.google.samples.apps.iosched
+  - caption: Read case study
+    url: https://medium.com/google-design/material-design-in-the-2014-google-i-o-app-e3b22caffae6
+
+  pages:
+  - video: iosched_2014
+    color: 'material indigo 100'
+    color2: 'material indigo 500'
+    device_frame: nexus5_light
+
+  - video: iosched_2014_article
+    color: 'material teal 100'
+    color2: 'material teal 500'
+    device_frame: browser
+    caption: I published a popular [article](https://medium.com/google-design/material-design-in-the-2014-google-i-o-app-e3b22caffae6) and [video](https://www.youtube.com/watch?v=XOcCOBe8PTc) detailing some of our design decisions for the 2014 app.
+
+  - image: iosched_2014_vignette.png
+    color: 'material indigo 100'
+    caption: The 2014 app was one of the very first apps to adopt material design.
+
+  - image: iosched_2013_vignette.png
+    color: '#fff'
+    caption: The 2013 app was one of the first to support 7-inch tablets for Android, helping light the path for Android tablet UI design.
+
+  - image: iosched_2011_vignette.png
+    color: 'material grey 100'
+    caption: The 2011 app was one of the first to support the new tablet form factor with multi-pane UIs.
+
+
+###################################################################################################
+
+
+- name: DashClock Widget
+  date: September 2012 – February 2013
+  extra_classes: tall
+  description: |
+    DashClock was my first published Android app and is exemplary of my philosophy for [design and developer advocacy](https://medium.com/google-developers/walk-then-talk-3b935bfe5484). It also promotes Android by exemplifying functionality that's only available on the Android platform.
+
+    I updated the app for material design shortly after the material launch at Google I/O 2014.
+
+    DashClock has been installed over 3 million times.
+
+  actions:
+  - caption: Install app
+    url: https://play.google.com/store/apps/details?id=net.nurik.roman.dashclock
+  - caption: View code
+    url: https://github.com/romannurik/dashclock
+
+  pages:
+  - video: dashclock
+    color: 'material teal 100'
+    color2: 'material teal 500'
+    device_frame: nexus5_light
+
+
+###################################################################################################
+
+
+- name: Android Design in Action Redesigns
+  date: 2012 and 2013
+  description: |
+    In 2012, I created and co-hosted a popular web video series on Android design, that now totals over a million views on YouTube.
+
+    The original idea was to put the UI guidance we were sharing with developers to practice by redesigning apps, nominated by the apps' developers, and discussing these explorations on a biweekly live broadcast.
+
+    The format eventually evolved, but we successfully produced about a dozen hypothetical designs over ~40 episodes, helping pave the way for better design in the Android app ecosystem.
+
+  actions:
+  - caption: Watch show
+    url: http://www.androiddesigninaction.com
+  - caption: More on Dribbble
+    url: https://dribbble.com/romannurik
+ 
+  pages:
+  - image: adia_london_underground.png
+    color: 'material light-green 100'
+    caption: |
+      This [London Underground app redesign](https://www.youtube.com/watch?v=Gs8k_PDUL3s&index=37&list=PLWz5rJ2EKKc8j2B95zGMb8muZvrIy-wcF#t=2m14s) from Sep 2012 was one of my first for ADiA. Click the image for detailed notes.
+
+  - image: adia_kayak.png
+    color: 'material orange 100'
+    caption: |
+      My design explorations for [Kayak](https://www.youtube.com/watch?v=z0j15ytJCIg&list=PLWz5rJ2EKKc8j2B95zGMb8muZvrIy-wcF&index=34#t=50s) from Oct 2012 were among my favorites during ADiA. Click the image for detailed notes.
+
+  - image: adia_live_score_addicts.png
+    color: 'material green 100'
+    caption: |
+      This [soccer scores app redesign](https://www.youtube.com/watch?v=hpqUbpVx5Bo&list=PLWz5rJ2EKKc8j2B95zGMb8muZvrIy-wcF&index=23#t=2m30s) from Feb 2013 was a great vehicle for allowing me to explore data visualization.
+
+
+###################################################################################################
+
+
+- name: Design Tools
+  description: |
+    One of my biggest passions is creating designer and developer tools. Since 2010, I've worked on a number of small and large, mostly web-based tools that help designers and developers be more productive.
+
+    This gallery showcases some of my proudest design tooling side projects.
+
+  pages:
+  - video: tools_sketch_artboard_tricks
+    color: '#F1F1F1'
+    color2: 'material teal 500'
+    caption: "Like many other designers, I've switched to using Sketch for most of my UI work. In my unrelenting quest to improve my own productivity, I started writing Sketch plugins. [Sketch Artboard Tricks](https://github.com/romannurik/sketch-artboardtricks) is one that I wrote that many designers on my current team now use."
+
+  - video: tools_assetstudio
+    color: 'material light-blue 100'
+    color2: '#0099CC'
+    device_frame: browser
+    caption: The [Android Asset Studio](http://j.mp/androidassetstudio) was one of the first tools I wrote, aiming to take the guesswork out of Android app icon sizing and effects. Plug in some values and it generates all the necessary assets for each screen density.
+
+  - video: tools_layervisualizer
+    color: 'material cyan 100'
+    color2: 'material cyan 500'
+    device_frame: browser
+    caption: The [Layer Visualizer](https://github.com/romannurik/LayerVisualizer) was a quick tool I built for helping [teach material design](https://www.udacity.com/course/material-design-for-android-developers--ud862), specifically the depth relationships of material surfaces. [See on Dribbble](https://dribbble.com/shots/2238573-Google-I-O-App-Layer-Visualization)
+
+  - video: tools_designpreview
+    extra_classes: dark no-padding
+    color: '#2D2D2D'
+    color2: 'material deep-orange 500'
+    caption: "[Android Design Preview](https://github.com/romannurik/AndroidDesignPreview) is a tool I co-wrote that allows designers to get a more realistic view of their UIs by mirroring a portion of their computer screen to an Android device."
+
+  - video: tools_ninepatch
+    color: 'material light-blue 100'
+    color2: '#0099CC'
+    device_frame: browser
+    caption: Nine-patches are notoriously tedious to produce, especially in bulk. I built the [nine-patch generator](http://romannurik.github.io/AndroidAssetStudio/nine-patches.html), to simplify the process of creating optimized nine-patches for all densities.
+
+  - video: tools_deviceart
+    color: 'material green 100'
+    color2: '#6ab344'
+    device_frame: browser
+    caption: I recognized several years ago that developers were using device frames inconsistently, with poor lighting/sheen, shadows, etc. I decided to make an easy-to-use [generator](http://developer.android.com/distribute/tools/promote/device-art.html) for Nexus device-framed images.
+
+
+###################################################################################################
+
+
+- name: Material Icons
+
+  description: |
+    I’ve created a number of product icons following the [material design guidelines](https://www.google.com/design/spec/style/icons.html), for a number of purposes, including official Google products such as [Google Cloud Messaging](https://developers.google.com/cloud-messaging/), as well as unofficial apps such as [Nick Butcher](http://twitter.com/crafty)’s [Plaid](https://dribbble.com/shots/2344334-Plaid-Product-Icon).
+
+    The gallery showcases a sampling of the icons I’ve worked on.
+
+  pages:
+  - color: 'material blue-grey 50'
+    image: material_icon_plaid.png
+    caption: Product icon for Nick Butcher's [Plaid](https://dribbble.com/shots/2344334-Plaid-Product-Icon) design inspiration app. [See on Dribbble](https://dribbble.com/shots/2344334-Plaid-Product-Icon)
+    extra_classes: no-fullscreen
+
+  - color: '#C6DAFC'
+    image: material_icon_gcm.png
+    caption: Official product icon for [Google Cloud Messaging](https://developers.google.com/cloud-messaging/).
+    extra_classes: no-fullscreen
+
+  - color: 'material purple 50'
+    image: material_icon_gutenberg.png
+    caption: Product icon for an internal team working on an attendee check-in system for Google Developer events.
+    extra_classes: no-fullscreen
+
+  - color: 'material amber 50'
+    image: material_icon_muzei.png
+    caption: Product icon for my app, [Muzei Live Wallpaper](https://play.google.com/store/apps/details?id=net.nurik.roman.muzei).
+    extra_classes: no-fullscreen
+
+  - color: 'material light-blue 50'
+    image: material_icon_dashclock.png
+    caption: Product icon for my app, [DashClock Widget](https://play.google.com/store/apps/details?id=net.nurik.roman.dashclock).
+    extra_classes: no-fullscreen
+
+
+###################################################################################################
+
+
+- name: FORM Type Maker & Watch Face
+  date: October 2014
+  extra_classes: tall
+  description: |
+    In addition to my strategy work for our [FORM conference](https://design.google.com/form-2014/) (which I co-created), I built a web-based playground for the brand's display typeface (created by the material team). The desktop and mobile web app let users type a message, choose a color, and created an [animated GIF to share on social media](https://twitter.com/tanyawuethrich/status/534276313537052672).
+
+    Because the conference was invite-only and very small, the playground was a **key part of the social media strategy for the event**, ensuring that those who couldn't attend could still participate in the conversation.
+
+    I designed and developed the app, building a `<canvas>`-based glyph animation framework in the process. This project was a great exercise in creative technology for me, and I learned a ton about modern web animation, performance, and more along the way.
+
+    Finally, I built an Android Wear watch face based on the font, and helped [integrate it with Muzei](https://medium.com/google-developers/only-on-android-45ff04d5722e).
+
+  actions:
+  - caption: Open app
+    url: http://formtypemaker.appspot.com
+  - caption: Install watch face
+    url: https://play.google.com/store/apps/details?id=net.nurik.roman.formwatchface
+
+  pages:
+  - color: '#02A8F3'
+    color2: 'material light-blue 500'
+    video: formtypemaker
+    device_frame: browser
+
+  - color: '#4EC2F6'
+    color2: 'material light-blue 500'
+    video: formtypemaker_watchface
+    device_frame: wear_round_light
+    extra_classes: circle no-fullscreen
+    caption: I also designed, developed, launched and open-sourced a [watch face for Android Wear](https://play.google.com/store/apps/details?id=net.nurik.roman.formwatchface) using the FORM typeface.
+
+###################################################################################################
+
+
+- name: Motion Graphics
+  description: |
+    While I've always been interested in motion design, I've only had a few opportunities to work on motion projects at Google. The gallery to the right showcases some of those projects, most of which were built with After Effects.
+
+    *Aside: For UI motion, I prefer to do most of my motion work directly in code (i.e. CSS or Android UI toolkit) because interaction and motion are so intertwined.*
+
+  pages:
+  - video: motion_androiddev_introclip
+    color: '#000000'
+    color2: '#a4c639'
+    extra_classes: dark no-padding
+    caption: An intro bumper for our [Android Developers YouTube channel](http://youtube.com/androiddevelopers). One of the earlier forays into higher-quality videos for our team.
+
+  - image: motion_checked_in.gif
+    color: '#eee'
+    caption: An 'attendee has checked in' UI state transition for an attendee check-in app for Google Developers events. [See on Dribbble](https://dribbble.com/shots/1971437-Checked-in-state)
+    extra_classes: no-fullscreen no-padding

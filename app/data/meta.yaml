@@ -1,0 +1,10 @@
+title: Roman Nurik's Portfolio
+subtitle: Designer + Android Developer
+intro: |
+    Hi, I'm [Roman](http://roman.nurik.net) and this is my design portfolio, covering work at Google
+    as well as side projects related to my work as an Android design advocate.
+
+    I've got even more work up on [Dribbble](https://dribbble.com/romannurik).
+footer: |
+    Hand-coded using HTML/Swig, JavaScript/jQuery, Sass, Gulp, and more.
+    [See the source](https://github.com/romannurik/portfolio)

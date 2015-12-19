@@ -1,0 +1,9 @@
+{
+  "name": "dummypackage",
+  "main": "dummypackage",
+  "devDependencies": {
+    "jquery": "~2.1.4",
+    "hammerjs": "~2.0.4"
+  },
+  "private": true
+}

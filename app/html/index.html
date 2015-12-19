@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<!--
+  Copyright 2015 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ meta.title }}</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,900|Roboto+Mono:400,700">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.blue_grey-deep_orange.min.css">
+  <link rel="stylesheet" href="styles/index.css" />
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script src="lib/hammerjs/hammer.min.js"></script>
+  <script src="scripts/index.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>{{ meta.title }}</h1>
+  <div class="subtitle">{{ meta.subtitle | markdown }}</div>
+  <div class="intro">
+    {{ meta.intro | markdown }}
+  </div>
+</header>
+
+<main>
+
+  {% for project in projects %}
+  <section class="project {{ project.extra_classes }}">
+    <div class="info">
+      <h2>{{ project.name }}</h2>
+      <p class="date">{{ project.date }}</p>
+      {{ project.description | markdown }}
+      {% if project.actions %}
+      <div class="actions">
+        {% for action in project.actions %}
+        <a href="{{ action.url }}">{{ action.caption }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="pages">
+      <div class="page-scroll">
+        {% for page in project.pages %}
+        <div class="page {{ page.extra_classes }} {% if page.video %}video{% endif %} {% if page.image %}image{% endif %}" style="background-color: {{ page.color | material_color }} {% if project.pager_height %}; height:{{project.pager_height}}px{% endif %}">
+          <div class="media loader-parent" {% if page.color2 %} style="color:{{ page.color2 | material_color }}"{% endif %}>
+            <div
+              {% if page.offset_media %}style="transform: translate({{ page.offset_media }});"{% endif %}
+              {% if page.device_frame %}class="device-frame device-{{ page.device_frame }}"{% endif %}>
+            {% if page.image %}
+            <!-- <div class="media image" style="background-image: url(media/{{ page.image }});"></div> -->
+            <img src="media/{{ page.image }}">
+            {% endif %}
+            {% if page.video %}
+            <video loop preload="none">
+              <source src="media/{{ page.video }}.mp4" type="video/mp4">
+              <source src="media/{{ page.video }}.webm" type="video/webm">
+            </video>
+            {% endif %}
+            </div>
+            <svg class="loading-spinner" width="64" height="64" viewbox="0 0 64 64">
+              <circle cx="32" cy="32" r="20" fill="none" stroke-width="6" stroke-miterlimit="10" stroke="#ccc" />
+            </svg>
+          </div>
+          {% if page.caption %}
+          <div class="caption">
+            {{ page.caption | markdown }}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+
+</main>
+
+<footer>
+  {{ meta.footer | markdown }}
+</footer>
+
+</body>
+</html>
