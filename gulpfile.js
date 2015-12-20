@@ -92,9 +92,8 @@ gulp.task('copy', function () {
     'app/*',
     '!app/html',
     '!app/data'
-  ], {
-    dot: true
-  }).pipe(gulp.dest('dist'))
+  ], {dot: true})
+    .pipe(gulp.dest('dist'))
     .pipe($.size({title: 'copy'}));
 });
 
@@ -285,7 +284,7 @@ gulp.task('deploy', function() {
 
 // Deploy to GitHub pages
 gulp.task('deploy', function() {
-  return gulp.src('dist/**/*')
+  return gulp.src('dist/**/*', {dot: true})
     .pipe($.ghPages({
       remoteUrl: 'https://github.com/romannurik/portfolio.git'
     }));
