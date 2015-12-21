@@ -278,12 +278,6 @@ gulp.task('default', ['clean'], function (cb) {
 
 // Deploy to GitHub pages
 gulp.task('deploy', function() {
-  return gulp.src('dist/**/*')
-    .pipe($.ghPages());
-});
-
-// Deploy to GitHub pages
-gulp.task('deploy', function() {
   return gulp.src('dist/**/*', {dot: true})
     .pipe($.ghPages({
       remoteUrl: 'https://github.com/romannurik/portfolio.git'
