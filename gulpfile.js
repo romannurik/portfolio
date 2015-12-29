@@ -89,7 +89,7 @@ gulp.task('media', function () {
     .pipe(gulp.dest('dist/images'))
     .pipe($.size({title: 'images'}));
 
-  return merge(stream2, stream2);
+  return merge(stream1, stream2);
 });
 
 // Copy All Files At The Root Level (app) and lib
@@ -236,11 +236,10 @@ gulp.task('html', function () {
 });
 
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
-// gulp.task('clean', function() {
-//   del(['.tmp', 'dist']);
-//   $.cache.clearAll();
-// });
+gulp.task('clean', function() {
+  del(['.tmp', 'dist']);
+  $.cache.clearAll();
+});
 
 // Watch Files For Changes & Reload
 gulp.task('serve', ['styles', 'bower', 'html'], function () {
