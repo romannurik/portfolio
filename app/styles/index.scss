@@ -157,17 +157,15 @@ header {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -25px;
-  margin-top: -25px;
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 64px;
+  margin-left: -32px;
+  margin-top: -32px;
   z-index: 1000;
 
   background: white;
   border-radius: 50%;
   animation: loading-spinner-rotate 4.5s linear infinite;
-  width: 64px;
-  height: 64px;
 
   circle {
     stroke-dasharray: 5, 200;
@@ -175,10 +173,16 @@ header {
     animation: loading-spinner-dash 1.5s ease-in-out infinite, loading-spinner-rotate-inner 1.5s linear infinite;
     stroke-linecap: butt;
   }
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.1s ease, visibility 0s linear 0.1s;
 }
 
-.loader-parent.loaded .loading-spinner {
-  visibility: hidden;
+.loader-parent.loading .loading-spinner {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.1s ease 0.5s, visibility 0s linear;
 }
 
 @keyframes loading-spinner-rotate {
@@ -343,81 +347,45 @@ section.project {
         padding: 24px;
 
         & > div {
-          flex: 0 1 auto;
+          flex: 0 0 auto;
         }
 
-        .device-frame.device-nexus5,
-        .device-frame.device-nexus5_light {
-          padding: 70px 18px 94px 18px;
-
-          video, img {
-            width: 360px;
-            height: 640px;
+        @mixin device-frame($name, $padding) {
+          .device-frame.device-#{$name} {
+            background: transparent url(../images/frame_#{$name}.svg) no-repeat 0 0;
+          }
+          .device-frame.device-#{$name}_light {
+            background: transparent url(../images/frame_#{$name}_light.svg) no-repeat 0 0;
+          }
+          .device-frame.device-#{$name},        
+          .device-frame.device-#{$name}_light {
+            padding: #{$padding};
+            video, img {
+              @content;
+            }
           }
         }
 
-        .device-frame.device-nexus5 {
-          background: transparent url(../media/_frame_nexus5.svg) no-repeat 0 0;
+        @include device-frame('nexus5', 70px 18px 94px 18px) {
+          width: 360px;
+          height: 640px;
         }
 
-        .device-frame.device-nexus5_light {
-          background: transparent url(../media/_frame_nexus5_light.svg) no-repeat 0 0;
+        @include device-frame('browser', 44px 0 0 0) {
+          width: 1440px;
+          height: auto;
         }
 
-        .device-frame.device-browser,
-        .device-frame.device-browser_light {
-          padding: 44px 0 0 0;
-
-          video, img {
-            width: 1440px;
-            height: auto;
-          }
+        @include device-frame('chromebook', 63px 246px 136px 250px) {
+          width: 1280px;
+          height: 850px;
+          object-position: 0% 0%;
+          object-fit: cover;
         }
 
-        .device-frame.device-browser {
-          background: transparent url(../media/_frame_browser.svg) no-repeat 0 0;
-        }
-
-        .device-frame.device-browser_light {
-          background: transparent url(../media/_frame_browser_light.svg) no-repeat 0 0;
-        }
-
-        .device-frame.device-chromebook,
-        .device-frame.device-chromebook_light {
-          padding: 63px 246px 136px 250px;
-
-          video, img {
-            width: 1280px;
-            height: 850px;
-            object-position: 0% 0%;
-            object-fit: cover;
-          }
-        }
-
-        .device-frame.device-chromebook {
-          background: transparent url(../media/_frame_chromebook.svg) no-repeat 0 0;
-        }
-
-        .device-frame.device-chromebook_light {
-          background: transparent url(../media/_frame_chromebook_light.svg) no-repeat 0 0;
-        }
-
-        .device-frame.device-wear_round,
-        .device-frame.device-wear_round_light {
-          padding: 180px 38px 180px 38px;
-
-          video, img {
-            width: 320px;
-            height: 320px;
-          }
-        }
-
-        .device-frame.device-wear_round {
-          background: transparent url(../media/_frame_wear_round.svg) no-repeat 0 0;
-        }
-
-        .device-frame.device-wear_round_light {
-          background: transparent url(../media/_frame_wear_round_light.svg) no-repeat 0 0;
+        @include device-frame('wear_round', 180px 38px 180px 38px) {
+          width: 320px;
+          height: 320px;
         }
       }
 
@@ -442,42 +410,59 @@ section.project {
         color: white;
       }
 
-      &.video .media:before {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(white, 0.2);
-        z-index: 1;
-      }
+      &.video {
+        .media {
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(white, 0.2);
+            z-index: 1;
+          }
 
-      &.video .media.loaded:after {
-        @include material-icons;
-        content: 'play_circle_filled';
-        font-size: 48px;
-        pointer-events: none;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -24px;
-        margin-top: -24px;
-        background-color: #fff;
-        border-radius: 50%;
-        z-index: 2;
-      }
+          &:after {
+            @include material-icons;
+            content: 'play_circle_filled';
+            font-size: 48px;
+            pointer-events: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -24px;
+            margin-top: -24px;
+            background-color: #fff;
+            border-radius: 50%;
+            z-index: 2;
+          }
 
-      &.video .media:before,
-      &.video .media:after {
-        opacity: 1;
-        transition: opacity 0.2s ease;
-      }
+          &:before,
+          &:after {
+            opacity: 1;
+            transition: opacity 0.2s ease;
+          }
 
-      &.video .media:hover:before,
-      &.video .media:hover:after {
-        opacity: 0;
+          &:hover:before,
+          &:hover:after {
+            opacity: 0;
+          }
+
+          &.loaded {
+            video {
+              display: block;
+            }
+            .thumb {
+              display: none;
+            }
+          }
+        }
+
+        video {
+          display: none;
+        }
       }
     }
 
@@ -562,27 +547,32 @@ footer {
   border-top: 1px solid rgba(black, 0.1);
 }
 
+body.has-fullscreen {
+  overflow: hidden;
+}
+
 .fullscreen-overlay {
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  background: rgba(white, 0.9);
+  background: white;
   visibility: hidden;
   opacity: 0;
   cursor: pointer;
   z-index: 1000;
-  padding: 64px;
   display: flex;
   transform: translate3d(0, 0, 0);
   transition: opacity 0.2s ease, visibility 0s ease 0.2s;
 
-  &.visible {
+  body.has-fullscreen & {
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, visibility 0s linear;
   }
+
+  padding: 64px;
 
   &:after {
     @include material-icons;
@@ -594,35 +584,24 @@ footer {
     top: 32px;
   }
 
+  @include stacked {
+    padding: 32px;
+    &:after {
+      right: 8px;
+      top: 8px;
+    }
+  }
+
   img, video {
     flex: 1 0 0;
     object-fit: scale-down;
     object-position: 50% 50%;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    transform: translate(0, 24px);
     display: block;
-
-    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
-
-    // poor performance on retina:
-    // filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, $shadow-key-umbra-opacity))
-    //         drop-shadow(0px 8px 10px rgba(0, 0, 0, $shadow-key-penumbra-opacity))
-    //         drop-shadow(0px 3px 14px rgba(0, 0, 0, $shadow-ambient-shadow-opacity));
-  }
-
-  &.visible {
-    img, video {
-      transform: translate3d(0, 0, 0);
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-  }
-
-  .loading-spinner {
-    
   }
 }
 
-.page.circle video {
+.page.circle video,
+.page.circle img {
   border-radius: 10000px;
 }
 
@@ -630,7 +609,7 @@ video {
   opacity: 0;
   outline: 0; // remove border in firefox
 
-  &.loaded {
+  .loaded & {
     opacity: 1;
   }
 }

@@ -20,6 +20,7 @@ $(document).ready(function() {
   setupVideoMedia();
   setupFullscreen();
 
+  FastClick.attach(document.body);
   $('.project a').attr('target', '_blank');
 });
 
@@ -33,16 +34,16 @@ function setupFullscreen() {
       .appendTo('body');
 
   function closeFullscreen_() {
-    $fullscreen.removeClass('visible');
+    $('body').removeClass('has-fullscreen');
   }
 
   $('.page:not(.no-fullscreen) .media').click(function() {
-    $fullscreen.removeClass('loaded');
+    $fullscreen.removeClass('loaded loading');
     if ($(this).parents('.panning').length > 0) {
       return;
     }
 
-    var $content = $(this).find('img, video').eq(0).clone();
+    var $content = $(this).find('img, video').first().clone();
     var $loadingSpinner = $(this).find('.loading-spinner').clone();
 
     $fullscreen
@@ -51,19 +52,24 @@ function setupFullscreen() {
         .append($loadingSpinner);
 
     if ($content.is('video')) {
+      setTimeout(function() {
+        $fullscreen.addClass('loading');
+      }, 10);
       $content
-          .removeClass('loaded')
-          .on('playing', function() {
-            $(this).addClass('loaded');
-            $(this).parents('.loader-parent').addClass('loaded');
+          .on('canplay', function() {
+            $content.addClass('loaded');
+            $fullscreen
+                .addClass('loaded')
+                .removeClass('loading');
+            $content.get(0).play();
           });
 
       var videoNode = $content.get(0);
-      videoNode.play();
+      videoNode.load();
     }
 
     setTimeout(function() {
-      $fullscreen.addClass('visible');
+      $('body').addClass('has-fullscreen');
     }, 10);
   });
 
@@ -77,12 +83,27 @@ function setupFullscreen() {
 
 function setupVideoMedia() {
   // play/pause/click interactions
+  var playEl = null;
+  var playElTimeout;
+  function playEl_() {
+    playVideoMedia($(playEl), true);
+  }
+
   $(document)
       .on('mouseenter', '.page.video .media', function() {
-        $(this).find('video').get(0).play();
+        if (playElTimeout) {
+          clearTimeout(playElTimeout);
+          playElTimeout = 0;
+        }
+        playEl = this;
+        playElTimeout = setTimeout(playEl_, 100);
       })
       .on('mouseleave', '.page.video .media', function() {
-        $(this).find('video').get(0).pause();
+        if (playElTimeout) {
+          clearTimeout(playElTimeout);
+          playElTimeout = 0;
+        }
+        playVideoMedia($(this), false);
       })
       .on('click', '.page.video .media', function() {
         $(this).find('video').get(0).currentTime = 0;
@@ -107,7 +128,7 @@ function setupVideoMedia() {
       $neverVisibleProjects = $('section.project:not(.was-visible)');
 
       // load first page
-      loadPage($(this).find('.page').eq(0));
+      loadPage($(this).find('.page').first());
     });
   }
 
@@ -364,15 +385,32 @@ function buildPagers() {
 
 
 function loadPage($page) {
-  var $video = $page.find('video:not(.loaded)');
-  if ($video.length) {
-    $video.on('canplay', function() {
-      $(this).addClass('loaded');
-      $(this).parents('.loader-parent').addClass('loaded');
-    });
+  //$page.find('.loading-spinner').remove();
+}
 
-    $video.get(0).load();
+
+function playVideoMedia($media, play) {
+  $media.data('should-be-playing', play);
+  var $video = $media.find('video');
+
+  if (play) {
+    if (!$media.hasClass('loaded')) {
+      $media.addClass('loading');
+      $video
+          .off('canplay')
+          .on('canplay', function() {
+            $media
+                .addClass('loaded')
+                .removeClass('loading');
+            if ($media.data('should-be-playing')) {
+              $video.get(0).play();
+            }
+          });
+      $video.get(0).load();
+    } else {
+      $video.get(0).play();
+    }
   } else {
-    $page.find('.loading-spinner').remove();
+    $video.get(0).pause();
   }
 }

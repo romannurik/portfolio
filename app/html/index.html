@@ -26,6 +26,7 @@
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
   <script src="lib/jquery/dist/jquery.min.js"></script>
   <script src="lib/hammerjs/hammer.min.js"></script>
+  <script src="lib/fastclick/lib/fastclick.js"></script>
   <script src="scripts/index.js"></script>
 </head>
 <body>
@@ -71,6 +72,7 @@
               <source src="media/{{ page.video }}.mp4" type="video/mp4">
               <source src="media/{{ page.video }}.webm" type="video/webm">
             </video>
+            <img class="thumb" src="media/{{ page.video }}-thumb.png">
             {% endif %}
             </div>
             <svg class="loading-spinner" width="64" height="64" viewbox="0 0 64 64">

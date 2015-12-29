@@ -76,14 +76,20 @@ gulp.task('bower', function() {
 
 // Optimize Images
 gulp.task('media', function () {
-  return gulp.src('app/media/**/*')
+  var stream1 = gulp.src('app/media/**/*')
+    .pipe(gulp.dest('dist/media'))
+    .pipe($.size({title: 'media'}));
+
+  var stream2 = gulp.src('app/images/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true,
       svgoPlugins: [{removeTitle: true}],
     })))
-    .pipe(gulp.dest('dist/media'))
-    .pipe($.size({title: 'media'}));
+    .pipe(gulp.dest('dist/images'))
+    .pipe($.size({title: 'images'}));
+
+  return merge(stream2, stream2);
 });
 
 // Copy All Files At The Root Level (app) and lib
@@ -254,6 +260,7 @@ gulp.task('serve', ['styles', 'bower', 'html'], function () {
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['js', reload]);
   gulp.watch(['app/media/**/*'], reload);
+  gulp.watch(['app/images/**/*'], reload);
   gulp.watch(['app/templates/**/*'], reload);
 });
 
