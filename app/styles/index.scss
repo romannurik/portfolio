@@ -563,6 +563,7 @@ body.has-fullscreen {
   cursor: pointer;
   z-index: 1000;
   display: flex;
+  justify-content: center;
   transform: translate3d(0, 0, 0);
   transition: opacity 0.2s ease, visibility 0s ease 0.2s;
 

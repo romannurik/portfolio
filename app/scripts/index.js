@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
+
 $(document).ready(function() {
   buildPagers();
   setupMediaSizing();
   setupVideoMedia();
   setupFullscreen();
+  setupKeyboardNav();
 
   FastClick.attach(document.body);
   $('.project a').attr('target', '_blank');
@@ -33,18 +35,17 @@ function setupFullscreen() {
       })
       .appendTo('body');
 
+  var $currentFullscreenMedia = null;
+
   function closeFullscreen_() {
     $('body').removeClass('has-fullscreen');
+    $currentFullscreenMedia = null;
   }
 
-  $('.page:not(.no-fullscreen) .media').click(function() {
-    $fullscreen.removeClass('loaded loading');
-    if ($(this).parents('.panning').length > 0) {
-      return;
-    }
-
-    var $content = $(this).find('img, video').first().clone();
-    var $loadingSpinner = $(this).find('.loading-spinner').clone();
+  function loadFullscreenMedia_($media) {
+    $currentFullscreenMedia = $media;
+    var $content = $media.find('img, video').first().clone();
+    var $loadingSpinner = $media.find('.loading-spinner').clone();
 
     $fullscreen
         .empty()
@@ -71,11 +72,67 @@ function setupFullscreen() {
     setTimeout(function() {
       $('body').addClass('has-fullscreen');
     }, 10);
+  }
+
+  $('.page:not(.no-fullscreen) .media').click(function() {
+    $fullscreen.removeClass('loaded loading');
+    if ($(this).parents('.panning').length > 0) {
+      return;
+    }
+
+    loadFullscreenMedia_($(this));
   });
 
   $(document).on('keydown', function(e) {
     if (e.keyCode == 27) {
       closeFullscreen_();
+    }
+  });
+
+  window.loadFullscreenMedia = loadFullscreenMedia_;
+  window.getCurrentFullscreenMedia = function() {
+    return $currentFullscreenMedia;
+  };
+}
+
+
+function setupKeyboardNav() {
+  $(document).on('keydown', function(e) {
+    if (e.keyCode == 37 || e.keyCode == 39) {
+      // left and right keys
+      var direction = (e.keyCode == 37) ? -1 : 1;
+      if ($('body').hasClass('has-fullscreen')) {
+        // send to fullscreen
+        var $media = getCurrentFullscreenMedia();
+        if ($media) {
+          var $page = $media.parent('.page');
+          var $siblingPage = $page[(direction == -1) ? 'prev' : 'next']('.page');
+          if ($siblingPage.length) {
+            loadFullscreenMedia($siblingPage.find('.media'));
+          }
+        }
+      } else {
+        // find most visible pager
+        var wh = $(window).height();
+        var mostVisiblePager = null;
+        var mostAmountVisible = 0; // 0 to 1
+
+        $('.pages').each(function() {
+          var rect = $(this).get(0).getBoundingClientRect();
+          var height = (rect.bottom - rect.top);
+          var visibleHeight = (Math.min(rect.bottom, wh) - Math.max(rect.top, 0));
+          var amountVisible = visibleHeight / height;
+          if (amountVisible > mostAmountVisible) {
+            mostVisiblePager = this;
+            mostAmountVisible = amountVisible;
+          }
+        });
+
+        if (mostVisiblePager && mostVisiblePager.snapToPage) {
+          // switch page
+          mostVisiblePager.snapToPage(mostVisiblePager.getCurrentPage() + direction);
+        }
+      }
     }
   });
 }
@@ -213,6 +270,7 @@ function buildPagers() {
   // build the actual pager
   $('.pages').each(function() {
     var $pager = $(this);
+    var pagerNode = this;
     var $pageScroll = $(this).find('.page-scroll');
     var $pages = $(this).find('.page');
     var $pageDots;
@@ -291,6 +349,11 @@ function buildPagers() {
       scrollTo_(position * (pageWidth + pageSpacing), true);
     };
 
+    pagerNode.snapToPage = snapToPage_;
+    pagerNode.getCurrentPage = function() {
+      return currentPage;
+    };
+
     // set up edge clickers
     $('<div>').addClass('edge-clicker prev').css('width', pagePeek).appendTo($pager)
       .click(function() { snapToPage_(currentPage - 1); });
@@ -360,23 +423,32 @@ function buildPagers() {
       }
     });
 
-    var lastWheelDeltaX;
-    var wheelEnabled = true;
-    $pager.on('wheel', function(e) {
-      var deltaX = e.originalEvent.deltaX;
-      if (wheelEnabled
-          && Math.abs(deltaX) > Math.abs(e.originalEvent.deltaY)
-          && Math.abs(deltaX) > 30) {
-        if (Math.abs(deltaX) > Math.abs(lastWheelDeltaX)) {
-          snapToPage_(currentPage + (deltaX > 0 ? 1 : -1));
-          wheelEnabled = false;
-          setTimeout(function() {
-            wheelEnabled = true;
-          }, 100);
-        }
+    var wheelLastHitDirection;
+    var wheelLastFailedStrengthX;
+    var wheelDebounce;
+
+    $pager.on('wheel', function(ev) {
+      var direction = (ev.originalEvent.deltaX < 0) ? -1 : 1;
+      var strengthX = Math.abs(ev.originalEvent.deltaX);
+      if (strengthX < Math.abs(ev.originalEvent.deltaY)) {
+        return true;
       }
 
-      lastWheelDeltaX = deltaX;
+      if (wheelDebounce || strengthX < 30) {
+        wheelLastFailedStrengthX = strengthX;
+        return false;
+      }
+
+      if (strengthX > wheelLastFailedStrengthX || direction != wheelLastHitDirection) {
+        // successful swipe
+        wheelLastHitDirection = direction;
+        wheelDebounce = true;
+        setTimeout(function() {
+          wheelDebounce = false;
+        }, 300);
+        snapToPage_(currentPage + direction);
+      }
+      return false;
     });
 
     scrollTo_(0, false, false);
