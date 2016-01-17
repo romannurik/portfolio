@@ -106,7 +106,7 @@ function setupKeyboardNav() {
         var $media = getCurrentFullscreenMedia();
         if ($media) {
           var $page = $media.parent('.page');
-          var $siblingPage = $page[(direction == -1) ? 'prev' : 'next']('.page');
+          var $siblingPage = $page[(direction == -1) ? 'prev' : 'next']('.page:not(.no-fullscreen)');
           if ($siblingPage.length) {
             loadFullscreenMedia($siblingPage.find('.media'));
           }
