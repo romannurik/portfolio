@@ -1,4 +1,4 @@
-**[View portfolio](http://romannurik.github.io/portfolio/)**
+**[View demo](http://romannurik.github.io/portfolio/)**
 
 I built my design portfolio with HTML/Swig/YAML, JavaScript/jQuery, Sass, and Gulp. If you're a designer
 and that's up your alley, you can use this as a starting point for your own portfolio.
