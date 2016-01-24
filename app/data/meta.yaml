@@ -1,10 +1,10 @@
-title: Roman Nurik's Portfolio
-subtitle: Designer + Android Developer
+title: Design Portfolio Demo
+subtitle: Your Title
 intro: |
-    Hi, I'm [Roman](http://roman.nurik.net) and this is my design portfolio, covering work at Google
-    as well as side projects related to my work as an Android design advocate.
+    This is a demo portfolio built using [this template](https://github.com/romannurik/portfolio). Take a look at a real portfolio based on the template [here](http://roman.nurik.net/portfolio/).
 
-    I've got even more work up on [Dribbble](https://dribbble.com/romannurik).
+    Lorem ipsum In in consequat in sunt commodo voluptate quis amet dolore anim ex in fugiat cillum ad Ut id [laboris](http://www.google.com) irure ut id esse Duis et Ut sint elit cupidatat aliquip consectetur ut consectetur.
+
+    Lorem ipsum Proident proident esse ut officia ut ad dolor sint proident in dolor ad mollit id ullamco dolor et nostrud.
 footer: |
-    Hand-coded using HTML/Swig, JavaScript/jQuery, Sass, Gulp, and more.
-    [See the source](https://github.com/romannurik/portfolio)
+    Template by [Roman Nurik](http://roman.nurik.net) using HTML/Swig, JavaScript/jQuery, Sass, Gulp, and more. [See the source](https://github.com/romannurik/portfolio)
