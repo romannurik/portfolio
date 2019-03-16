@@ -1,10 +1,19 @@
 title: Design Portfolio Demo
-subtitle: Your Title
-intro: |
-    This is a demo portfolio built using [this template](https://github.com/romannurik/portfolio). Take a look at a real portfolio based on the template [here](http://roman.nurik.net/portfolio/).
+subtitle: Your Portfolio Title
+intro: >
+  This is a demo portfolio built using [this
+  template](https://github.com/romannurik/portfolio). Take a look at a real
+  portfolio based on the template [here](http://roman.nurik.net/portfolio/).
 
-    Lorem ipsum In in consequat in sunt commodo voluptate quis amet dolore anim ex in fugiat cillum ad Ut id [laboris](http://www.google.com) irure ut id esse Duis et Ut sint elit cupidatat aliquip consectetur ut consectetur.
 
-    Lorem ipsum Proident proident esse ut officia ut ad dolor sint proident in dolor ad mollit id ullamco dolor et nostrud.
-footer: |
-    Template by [Roman Nurik](http://roman.nurik.net) using HTML/Swig, JavaScript/jQuery, Sass, Gulp, and more. [See the source](https://github.com/romannurik/portfolio)
+  Lorem ipsum In in consequat in sunt commodo voluptate quis amet dolore anim ex
+  in fugiat cillum ad Ut id [laboris](http://www.google.com) irure ut id esse
+  Duis et Ut sint elit cupidatat aliquip consectetur ut consectetur.
+
+
+  Lorem ipsum Proident proident esse ut officia ut ad dolor sint proident in
+  dolor ad mollit id ullamco dolor et nostrud.
+footer: >
+  Template by [Roman Nurik](http://roman.nurik.net) using HTML/Swig,
+  JavaScript/jQuery, Sass, Gulp, and more. [See the
+  source](https://github.com/romannurik/portfolio)
