@@ -1,106 +1,11 @@
-# List of my portfolio projects.
+name: asdf asdf asdf asd f
+description: |-
+  asdf asdf asdf 
 
-- name: Project 1
-  date: September 2013 – February 2014
-  extra_classes: tall
-  description: |
-    Lorem ipsum Aliquip qui enim dolore deserunt est eu nostrud in commodo do qui dolore dolor non do nostrud labore cupidatat aliquip proident ut mollit eiusmod ex culpa sint dolor velit incididunt laborum dolore qui [Duis aliqua cupidatat](http://www.google.com) eiusmod occaecat quis labore dolor labore nostrud ad ut quis magna reprehenderit officia laborum in ullamco anim dolore Duis eu minim dolor ex Ut et est deserunt veniam in sed labore ad labore culpa labore laboris dolor dolore in id sunt ut eu nulla dolore in.
+  as
 
-    Incididunt anim enim non Ut culpa culpa incididunt est tempor magna cillum officia mollit magna enim nisi culpa eu eu elit ex in consectetur ad dolore amet elit proident adipisicing magna aute officia elit nisi commodo reprehenderit labore proident enim dolor laborum est labore aliqua non dolore occaecat cupidatat aute Excepteur sed veniam laboris veniam id.
+  df a
 
-  actions:
-  - caption: Action 1
-    url: http://www.google.com
-  - caption: Action 2
-    url: http://www.google.com
+  sdf 
 
-  pages:
-  - video: project1
-    color: '#c2d6f2'
-    color2: '#3c6caf'
-    device_frame: nexus5_light
-
-  - image: project1_detail1.png
-    color: '#c2d6f2'
-    color2: '#3c6caf'
-    extra_classes: no-scale
-    offset_media: 0, 22%
-    device_frame: nexus5_light
-    caption: Lorem ipsum Dolor non esse nostrud dolor in amet dolor anim sunt officia nulla voluptate ea tempor nostrud Excepteur. [Extra link](http://www.google.com)
-
-  - video: project1_archive
-    color: 'material orange 100'
-    color2: 'material orange 600'
-    device_frame: browser
-    caption: Lorem ipsum Laborum esse exercitation et Duis irure sed Duis Duis aliqua non id in.
-
-
-###################################################################################################
-
-
-- name: Project 2
-  date: 2010 – 2014
-  extra_classes: tall
-  description: |
-    Lorem ipsum *Id eu aliquip cillum* ut anim in tempor non magna anim occaecat.
-
-    * Lorem ipsum Duis Duis proident laborum aliquip est sint deserunt qui tempor in anim sunt fugiat nisi sint proident elit esse.
-    * Lorem ipsum Nulla ea deserunt officia cillum dolore voluptate laborum mollit qui Ut quis.
-
-    Lorem ipsum Dolore laborum laborum eiusmod ex dolor nostrud magna ex voluptate quis et nisi consectetur mollit cillum pariatur aliquip ea labore consequat nostrud sed proident cupidatat dolor velit fugiat nostrud et Ut esse deserunt anim.
-
-  actions:
-  - caption: Action 1
-    url: http://www.google.com
-  - caption: Action 2
-    url: http://www.google.com
-
-  pages:
-  - video: project2_2014
-    color: 'material indigo 100'
-    color2: 'material indigo 500'
-    device_frame: nexus5_light
-
-  - video: project2_2014_article
-    color: 'material teal 100'
-    color2: 'material teal 500'
-    device_frame: browser
-    caption: Lorem ipsum Culpa do Excepteur ut veniam veniam irure sit culpa qui Excepteur magna exercitation cillum proident id.
-
-  - image: project2_2014_vignette.png
-    color: 'material indigo 100'
-    caption: Lorem ipsum Excepteur sed eiusmod eu exercitation deserunt dolor occaecat aute voluptate proident ut ut sed.
-
-  - image: project2_2013_vignette.png
-    color: '#fff'
-    caption: Lorem ipsum In ad exercitation sunt culpa fugiat incididunt ad aliquip dolor irure sint nisi ut exercitation labore dolor cupidatat ea anim.
-
-  - image: project2_2011_vignette.png
-    color: 'material grey 100'
-    caption: Lorem ipsum Id laborum enim id ad mollit aliquip exercitation nulla in non nulla aliquip magna veniam.
-
-
-###################################################################################################
-
-
-- name: Project 3
-  date: September 2012 – February 2013
-  extra_classes: tall
-  description: |
-    Lorem ipsum Eu voluptate veniam do magna dolore reprehenderit esse ad in amet Excepteur aute in consequat nulla in dolore reprehenderit commodo irure nostrud nulla nostrud nisi sed exercitation sed mollit.
-
-    Duis dolore sit incididunt ut aliquip aliqua occaecat cillum sunt exercitation incididunt ut Excepteur magna velit fugiat laboris sed dolore incididunt occaecat laborum amet tempor fugiat voluptate officia mollit consequat in Excepteur ut in laboris proident est enim ut aliquip culpa do ex enim non sed ut exercitation anim est nostrud consequat ad voluptate officia aliquip minim anim velit.
-
-    Consectetur pariatur ex consequat elit esse magna commodo ea cillum Excepteur labore adipisicing.
-
-  actions:
-  - caption: Action 1
-    url: http://www.google.com
-  - caption: Action 2
-    url: http://www.google.com
-
-  pages:
-  - video: project3
-    color: 'material teal 100'
-    color2: 'material teal 500'
-    device_frame: nexus5_light
+  asd fasd f
